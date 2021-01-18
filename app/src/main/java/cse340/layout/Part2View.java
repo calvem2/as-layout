@@ -2,12 +2,16 @@ package cse340.layout;
 
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 
 import java.util.Collections;
 import java.util.List;
 
+// Documentation used
+// ConstraintLayout params: https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout.LayoutParams
+// ImageView scale type: https://developer.android.com/reference/android/widget/ImageView.ScaleType
 public class Part2View extends ScrollView {
     /**
      * For this part, we want to create a scrollable column of images. We have extended the
@@ -40,6 +44,27 @@ public class Part2View extends ScrollView {
             // TODO: Create some ConstraintLayout.LayoutParams and set them so the image will expand in X and minimize Y
             // TODO: Set the parameters to use the constraint layout so that the images look like they did in Part1
 
+            // scale image
+            img.setAdjustViewBounds(true);
+            img.setScaleType(ImageView.ScaleType.FIT_CENTER);
+
+            // set id
+            img.setId(i + 1);
+
+            // set layout params
+            ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(0, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(vMargin, vMargin, vMargin, 0);
+            params.leftToLeft = container.getId();
+            params.rightToRight = container.getId();
+            if (i == 0) {
+                params.topToTop = container.getId();
+            } else {
+                params.topToBottom = images.get(i - 1).getId();
+            }
+
+            img.setLayoutParams(params);
+
+            container.addView(img);
         }
     }
 
