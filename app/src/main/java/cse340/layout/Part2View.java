@@ -13,7 +13,7 @@ public class Part2View extends ScrollView {
      * For this part, we want to create a scrollable column of images. We have extended the
      * ScrollView to accomplish this.
      *
-     * Use a single LinearLayout to contain your images, adding margins as necessary to maintain
+     * Use a single ConstraintLayout to contain your images, adding margins as necessary to maintain
      * the desired layout. When the device is rotated, the images should fill the column,
      * utilizing the passed vMargin variable to determine spacing.
      *
