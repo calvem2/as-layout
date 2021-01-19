@@ -1,12 +1,21 @@
 package cse340.layout;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import java.util.List;
 
+// Documentation used
+// LayoutInflater: https://developer.android.com/reference/android/view/LayoutInflater.html
+// Lecture: https://courses.cs.washington.edu/courses/cse340/21wi/slides/wk02/layout.html.pdf
+// how android draws: https://developer.android.com/guide/topics/ui/how-android-draws
+// LayoutParams: https://developer.android.com/reference/android/widget/LinearLayout.LayoutParams
+// View: https://developer.android.com/reference/android/view/View
+// ViewGroup: https://developer.android.com/reference/android/view/ViewGroup
+// MeasureSpec: https://developer.android.com/reference/android/view/View.MeasureSpec
 public class Part3View extends ScrollView {
 
     /** The image views to layout out */
@@ -53,7 +62,8 @@ public class Part3View extends ScrollView {
         // TODO Design part3_grid.xml
         // TODO Inflate R.layout.part3_grid
         // TODO add it to this View
-
+        LayoutInflater inflater = LayoutInflater.from(context);
+        inflater.inflate(R.layout.part3_grid, this);
     }
 
     /**
@@ -72,11 +82,18 @@ public class Part3View extends ScrollView {
         // TODO Get references to the left and right columns (LinearLayouts specified in part3_grid)
         // TODO You can use R.id for this if you set up their ID properties properly in part3_grid
         // Then remove all the views in case anything has changed...
-        
+        LinearLayout left = this.findViewById(R.id.left);
+        LinearLayout right = this.findViewById(R.id.right);
+        left.removeAllViews();
+        right.removeAllViews();
         int leftHeight = 0, rightHeight = 0;
 
         // TODO Setup layout params for the images up since we'll be using the same params overr and over
         // Note: This is much simpler than for ConstraintLayout, it does a lot for you. Don't forget to include the margin!
+        LinearLayout.LayoutParams leftParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        leftParams.setMargins(mVMargin, mVMargin, mVMargin / 2, 0);
+        LinearLayout.LayoutParams rightParams = new LinearLayout.LayoutParams(leftParams);
+        rightParams.setMargins(mVMargin / 2, mVMargin, mVMargin, 0);
 
         // Loop through the views
         for (ImageView img : mImageViews) {
@@ -84,6 +101,15 @@ public class Part3View extends ScrollView {
             // TODO: Figure out which column to add it to based on the current column heights
             // TODO also update the appropriate column height
 
+            if (leftHeight <= rightHeight) {
+                img.setLayoutParams(leftParams);
+                left.addView(img);
+                leftHeight += img.getMeasuredHeight();
+            } else {
+                img.setLayoutParams(rightParams);
+                right.addView(img);
+                rightHeight += img.getMeasuredHeight();
+            }
         }
 
         // let the toolkit confirm measurement properly
