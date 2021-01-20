@@ -7,13 +7,13 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.support.constraint.ConstraintLayout;
+import android.widget.ScrollView;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -56,7 +56,7 @@ public class MainActivity extends TabActivity {
         final int defaultMargin = getResources().getDimensionPixelSize(R.dimen.activity_vertical_margin);
 
         // Get tab related views.
-        ConstraintLayout contents = findViewById(R.id.tab_contents);  // Our primary view.
+        ScrollView contents = findViewById(R.id.tab_contents);  // Our primary view.
         TabView nav = findViewById(R.id.bottom_nav);     // Tabs at the bottom of screen.
         contents.setBackgroundColor(Color.WHITE);
 
