@@ -10,14 +10,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
         android:id="@+id/tab_contents"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottom_nav"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp">
-    </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 
     <cse340.layout.TabView
         android:id="@+id/bottom_nav"
