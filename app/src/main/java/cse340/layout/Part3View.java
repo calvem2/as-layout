@@ -100,6 +100,9 @@ public class Part3View extends ScrollView {
             // TODO create a new image and set it up (see Part2View for how to do this)
             // TODO: Figure out which column to add it to based on the current column heights
             // TODO also update the appropriate column height
+            // scale image
+            img.setAdjustViewBounds(true);
+            img.setScaleType(ImageView.ScaleType.FIT_CENTER);
 
             if (leftHeight <= rightHeight) {
                 img.setLayoutParams(leftParams);
