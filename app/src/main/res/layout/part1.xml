@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Documentation Used
+- Constraint Layout: https://developer.android.com/training/constraint-layout
+- ImageView: https://developer.android.com/reference/android/widget/ImageView
+- ImageView fitCenter: https://developer.android.com/reference/android/graphics/Matrix.ScaleToFit#CENTER
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--
+        TODO: Write the XML necessary to produce the described layout on the spec sheet for Part 1.
+            You should include at least 5 image elements from the drawable folder (either the first five
+            or any particular favorites).
+
+            You should use the "vMargin" constant in the dimens.xml for your margins
+
+            You can reference XML-defined constants (in the values folder) using @(tag name)/(value_name).
+
+            You should only add images, no layout containers
+
+            You should add contentDescriptions
+        -->
+        <ImageView
+            android:id="@+id/imageView0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/vMargin"
+            android:layout_marginTop="@dimen/vMargin"
+            android:layout_marginRight="@dimen/vMargin"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/animal_0" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/vMargin"
+            android:layout_marginTop="@dimen/vMargin"
+            android:layout_marginRight="@dimen/vMargin"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView0"
+            app:srcCompat="@drawable/animal_1" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/vMargin"
+            android:layout_marginTop="@dimen/vMargin"
+            android:layout_marginRight="@dimen/vMargin"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView1"
+            app:srcCompat="@drawable/animal_2" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/vMargin"
+            android:layout_marginTop="@dimen/vMargin"
+            android:layout_marginRight="@dimen/vMargin"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView2"
+            app:srcCompat="@drawable/animal_3" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/vMargin"
+            android:layout_marginTop="@dimen/vMargin"
+            android:layout_marginRight="@dimen/vMargin"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView3"
+            app:srcCompat="@drawable/animal_4" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
