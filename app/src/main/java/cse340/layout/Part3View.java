@@ -91,8 +91,8 @@ public class Part3View extends ScrollView {
         // TODO Setup layout params for the images up since we'll be using the same params overr and over
         // Note: This is much simpler than for ConstraintLayout, it does a lot for you. Don't forget to include the margin!
         LinearLayout.LayoutParams leftParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        leftParams.setMargins(mVMargin, mVMargin, mVMargin / 2, 0);
         LinearLayout.LayoutParams rightParams = new LinearLayout.LayoutParams(leftParams);
+        leftParams.setMargins(mVMargin, mVMargin, mVMargin / 2, 0);
         rightParams.setMargins(mVMargin / 2, mVMargin, mVMargin, 0);
 
         // Loop through the views
@@ -100,10 +100,17 @@ public class Part3View extends ScrollView {
             // TODO create a new image and set it up (see Part2View for how to do this)
             // TODO: Figure out which column to add it to based on the current column heights
             // TODO also update the appropriate column height
+
             // scale image
             img.setAdjustViewBounds(true);
             img.setScaleType(ImageView.ScaleType.FIT_CENTER);
 
+            // measure image
+            img.measure(MeasureSpec.makeMeasureSpec(left.getMeasuredWidth(), MeasureSpec.AT_MOST),
+                    MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+
+
+            // add to appropriate column
             if (leftHeight <= rightHeight) {
                 img.setLayoutParams(leftParams);
                 left.addView(img);
