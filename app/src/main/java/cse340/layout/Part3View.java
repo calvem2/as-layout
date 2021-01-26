@@ -1,7 +1,9 @@
 package cse340.layout;
 
 import android.content.Context;
+import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -78,6 +80,7 @@ public class Part3View extends ScrollView {
         // Run the measurement code that Android provides to make sure we have a width and height
         // set up for the columns
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        System.out.println("hi");
 
         // TODO Get references to the left and right columns (LinearLayouts specified in part3_grid)
         // TODO You can use R.id for this if you set up their ID properties properly in part3_grid
@@ -106,20 +109,34 @@ public class Part3View extends ScrollView {
             img.setScaleType(ImageView.ScaleType.FIT_CENTER);
 
             // measure image
-            img.measure(MeasureSpec.makeMeasureSpec(left.getMeasuredWidth(), MeasureSpec.AT_MOST),
+            img.measure(MeasureSpec.makeMeasureSpec(left.getMeasuredWidth(), MeasureSpec.EXACTLY),
                     MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+            System.out.println(img.getMeasuredHeight());
 
 
             // add to appropriate column
             if (leftHeight <= rightHeight) {
                 img.setLayoutParams(leftParams);
                 left.addView(img);
+//                left.measure(MeasureSpec.makeMeasureSpec(ConstraintLayout.LayoutParams.MATCH_CONSTRAINT, MeasureSpec.EXACTLY),
+//                        MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+//                leftHeight = left.getMeasuredHeight();
                 leftHeight += img.getMeasuredHeight();
             } else {
                 img.setLayoutParams(rightParams);
                 right.addView(img);
+//                right.measure(MeasureSpec.makeMeasureSpec(ConstraintLayout.LayoutParams.MATCH_CONSTRAINT, MeasureSpec.EXACTLY),
+//                        MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+//                rightHeight = right.getMeasuredHeight();
                 rightHeight += img.getMeasuredHeight();
             }
+
+            System.out.println(leftHeight + " " + rightHeight);
+
+
+
+//            leftHeight = left.getMeasuredHeight();
+//            rightHeight = right.getMeasuredHeight();
         }
 
         // let the toolkit confirm measurement properly
