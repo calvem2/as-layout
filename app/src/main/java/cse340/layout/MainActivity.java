@@ -83,7 +83,7 @@ public class MainActivity extends TabActivity {
                     return true;
                 case R.id.action_part_4:
                     setCurrentTabId(R.id.action_part_4);
-                    contents.addView(new Part4View(this), PARAMS);
+                    contents.addView(new Part4View(this, getImages("data3.csv")), PARAMS);
                     return true;
                 default:
                     Log.e("CSE340","Unrecognized nav item selected: " + item.getTitle());
