@@ -2,6 +2,8 @@ package cse340.layout;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.constraint.ConstraintLayout;
 import android.text.TextUtils;
@@ -24,6 +26,7 @@ import java.util.Random;
 // TextView: https://developer.android.com/reference/android/widget/TextView
 // Gravity: https://developer.android.com/reference/android/view/Gravity
 // Custom buttons: https://medium.com/@addeeandra/androidstarter-1-i-want-a-round-button-636bc5553d6d
+// scrollbar style: https://stackoverflow.com/questions/9494221/hide-scrollbar-in-scrollview
 /**
  * This view should imitate an interface you've seen before and like. If you need ideas
  * about what to imitate, check out this repository: http://interactionmining.org/rico
@@ -90,6 +93,8 @@ public class Part4View extends ConstraintLayout {
             description.setLines(1);
             description.setGravity(Gravity.CENTER);
             description.setPadding(20, 0, 20, 0);
+//            description.setTypeface(Typeface.DEFAULT, Typeface.);
+            description.setTextColor(Color.BLACK);
 
             // add to layout
             if (i % 2 == 0) {
@@ -101,9 +106,6 @@ public class Part4View extends ConstraintLayout {
                 right.addView(img);
                 right.addView(description);
             }
-
-
-
         }
     }
 

@@ -28,14 +28,17 @@
 
         <ImageButton
             android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
+            android:adjustViewBounds="true"
             android:background="@drawable/btn_circle"
-            app:srcCompat="@android:drawable/ic_menu_search" />
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@android:drawable/ic_search_category_default" />
 
     </RelativeLayout>
 
@@ -43,10 +46,11 @@
         android:id="@+id/filters"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
+        android:scrollbars="none"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        >
+        app:layout_constraintTop_toBottomOf="@id/header">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -55,59 +59,72 @@
 
             <ImageButton
                 android:id="@+id/button10"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:padding="10dp"
+                android:scaleType="fitCenter"
                 android:background="@drawable/btn_circle"
-                android:layout_weight="1" />
+                app:srcCompat="@drawable/profile"/>
 
             <Button
                 android:id="@+id/button11"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:background="@drawable/btn_round"
-                android:text="Sell" />
+                android:minWidth="64dp"
+                android:text="Sell"
+                android:textColor="@android:color/black" />
 
             <Button
                 android:id="@+id/button12"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:background="@drawable/btn_round"
-                android:text="Local" />
+                android:minWidth="64dp"
+                android:text="Local"
+                android:textColor="@android:color/black" />
 
             <Button
                 android:id="@+id/button13"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_weight="4"
                 android:background="@drawable/btn_round"
-                android:text="Vehicles" />
+                android:text="Vehicles"
+                android:textColor="@android:color/black" />
 
             <Button
                 android:id="@+id/button14"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:background="@drawable/btn_round"
-                android:text="Rentals" />
+                android:text="Rentals"
+                android:textColor="@android:color/black" />
 
             <Button
                 android:id="@+id/button15"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:background="@drawable/btn_round"
-                android:text="More" />
+                android:minWidth="64dp"
+                android:text="More"
+                android:textColor="@android:color/black" />
 
         </LinearLayout>
     </HorizontalScrollView>
@@ -128,9 +145,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider1"
-        >
+        app:layout_constraintTop_toBottomOf="@id/divider1">
 
         <TextView
             android:id="@+id/textView4"
@@ -139,7 +156,10 @@
             android:layout_alignParentStart="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="Today's picks" />
+            android:text="Today's picks"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView5"
@@ -148,7 +168,9 @@
             android:layout_alignParentEnd="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="Seattle • 10 mi" />
+            android:text="Seattle • 10 mi"
+            android:textColor="#0061F1"
+            android:textSize="18sp" />
     </RelativeLayout>
 
     <android.support.constraint.ConstraintLayout
