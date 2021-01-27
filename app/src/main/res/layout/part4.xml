@@ -84,7 +84,7 @@
                 android:minWidth="64dp"
                 android:text="Sell"
                 android:textColor="@android:color/black"
-                tools:textAllCaps="false" />
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/button12"
@@ -96,7 +96,7 @@
                 android:minWidth="64dp"
                 android:text="Local"
                 android:textColor="@android:color/black"
-                tools:textAllCaps="false"/>
+                android:textAllCaps="false"/>
 
             <Button
                 android:id="@+id/button13"
@@ -107,7 +107,7 @@
                 android:background="@drawable/btn_round"
                 android:text="Vehicles"
                 android:textColor="@android:color/black"
-                tools:textAllCaps="false"/>
+                android:textAllCaps="false"/>
 
             <Button
                 android:id="@+id/button14"
@@ -118,7 +118,7 @@
                 android:background="@drawable/btn_round"
                 android:text="Rentals"
                 android:textColor="@android:color/black"
-                tools:textAllCaps="false"/>
+                android:textAllCaps="false"/>
 
             <Button
                 android:id="@+id/button15"
@@ -130,7 +130,7 @@
                 android:minWidth="64dp"
                 android:text="More"
                 android:textColor="@android:color/black"
-                tools:textAllCaps="false"/>
+                android:textAllCaps="false"/>
 
         </LinearLayout>
     </HorizontalScrollView>
