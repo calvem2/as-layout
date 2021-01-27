@@ -12,8 +12,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 
 // Documentation used
 // default search icon: https://stackoverflow.com/questions/47338053/using-android-studio-default-search-icon-for-searchview
@@ -32,7 +37,7 @@ import java.util.Random;
  */
 public class Part4View extends ConstraintLayout {
 
-    public Part4View(Context context, List<ImageView> images) {
+    public Part4View(Context context) {
         super(context);
         // TODO: Build your desired layout for part 4. Make use of a combination of XML and programmatic techniques to accomplish this.
 
@@ -40,6 +45,27 @@ public class Part4View extends ConstraintLayout {
 
         LayoutInflater inflater = LayoutInflater.from(context);
         inflater.inflate(R.layout.part4, this);
+
+        // get images
+        List<ImageView> images = new ArrayList<>();
+        try {
+            Scanner scan = new Scanner(new InputStreamReader(context.getAssets().open("data3.csv")));
+            scan.useDelimiter("[,\n$]");
+            while (scan.hasNextLine()) {
+                String imageName = scan.next();
+                String imageDescription = scan.nextLine();
+                ImageView img = new ImageView(context); // create the image
+                img.setContentDescription(imageDescription);
+                // says that the image file is in res/drawable/[resource]
+                img.setImageResource(getResources().getIdentifier(imageName, "drawable", "cse340.layout"));
+                img.setAdjustViewBounds(true);          // it will adjust its bounds to preserve the aspect ratio of its drawable.
+                images.add(img);
+            }
+        } catch (IOException e) {
+            throw new IllegalStateException("data3.csv" + " not found in assets");
+        } catch (InputMismatchException e) {
+            throw new IllegalStateException("data3.csv" + " is malformed");
+        }
 
         // get reference to listing containers
         LinearLayout left = this.findViewById(R.id.left);
