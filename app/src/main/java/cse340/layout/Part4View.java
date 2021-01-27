@@ -3,7 +3,6 @@ package cse340.layout;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.constraint.ConstraintLayout;
 import android.text.TextUtils;
@@ -67,16 +66,13 @@ public class Part4View extends ConstraintLayout {
             int width  = srcMap.getWidth();
             int height = srcMap.getHeight();
             int newWidth = Math.min(height, width);
-            int newHeight = (height > width)? height - ( height - width) : height;
-            int cropW = (width - height) / 2;
-            cropW = Math.max(cropW, 0);
-            int cropH = (height - width) / 2;
-            cropH = Math.max(cropH, 0);
+            int newHeight = (height > width)?  height - ( height - width) : height;
+            int cropW = Math.max((width - height) / 2, 0);
+            int cropH = Math.max((height - width) / 2, 0);
             dstMap = Bitmap.createBitmap(srcMap, cropW, cropH, newWidth, newHeight);
 
             // crop
             img.setImageBitmap(dstMap);
-
 
             // Construct textview for description
             TextView description = new TextView(context);
@@ -90,10 +86,9 @@ public class Part4View extends ConstraintLayout {
 
             // format description
             description.setEllipsize(TextUtils.TruncateAt.END);
-            description.setLines(1);
+            description.setMaxLines(1);
             description.setGravity(Gravity.CENTER);
             description.setPadding(20, 0, 20, 0);
-//            description.setTypeface(Typeface.DEFAULT, Typeface.);
             description.setTextColor(Color.BLACK);
 
             // add to layout
